@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<servlet>
+		<servlet-name>chartServlet</servlet-name>
+		<servlet-class>com.appbootup.gwt.server.ChartServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>jsonAMChartService</servlet-name>
+		<servlet-class>com.appbootup.gwt.server.JSONAMChartServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>chartServlet</servlet-name>
+		<url-pattern>/amcharts/chart</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>jsonAMChartService</servlet-name>
+		<url-pattern>/amcharts/json/amchart</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>amcharts.html</welcome-file>
+	</welcome-file-list>
+
+
+</web-app>
