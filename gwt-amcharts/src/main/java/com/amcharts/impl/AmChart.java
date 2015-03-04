@@ -624,4 +624,12 @@ public class AmChart implements IsAmChart, IJavaScriptWrapper<AmChartJSO>
 		};
 		return amChartPanel;
 	}
+
+	public native ValueAxis getValueAxesOne()
+	/*-{
+		var chart = @com.amcharts.impl.util.WrapperUtils::unwrap(Lcom/google/gwt/core/client/IJavaScriptWrapper;)(this);
+		var valueAxisJSO = chart.valueAxes[0];
+		var valueAxis = @com.amcharts.impl.util.WrapperUtils::wrap(Lcom/google/gwt/core/client/JavaScriptObject;)(valueAxisJSO);
+		return valueAxis;
+	}-*/;
 }
