@@ -9,6 +9,7 @@ import com.amcharts.impl.AmChartLayoutPanel;
 import com.amcharts.impl.AmCharts;
 import com.amcharts.impl.AmExport;
 import com.amcharts.impl.AmGraph;
+import com.amcharts.impl.AmLegend;
 import com.amcharts.impl.AmSerialChart;
 import com.amcharts.impl.CategoryAxis;
 import com.amcharts.impl.ChartCursor;
@@ -80,11 +81,17 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 		amSerialChart.setTitles(titles);
 		amSerialChart.setDataProvider(chartData);
 
+		AmLegend amLegend = AmCharts.AmLegend();
+		amLegend.setEqualWidths(false);
+		amLegend.setValueAlign("left");
+		amLegend.setValueWidth(100);
+		amSerialChart.setLegend(amLegend);
+
 		final ValueAxis valueAxis = AmCharts.ValueAxis();
 		valueAxis.setAxisAlpha(0);
 		valueAxis.setDashLength(4);
 		valueAxis.setPosition("left");
-		valueAxis.setTitle("Visitors from country");
+		valueAxis.setTitle("Visitors from Country");
 		amSerialChart.addValueAxis(valueAxis);
 
 		// GRAPHS
@@ -93,7 +100,9 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 		amGraph1.setLineAlpha(0);
 		amGraph1.setShowBalloon(false);
 		amGraph1.setValueField("fromValue");
+		amGraph1.setLegendValueText("[[value]]");
 		amGraph1.setFillAlphas(0);
+		amGraph1.setTitle("FromValue");
 		amSerialChart.addGraph(amGraph1);
 		AmGraph amGraph2 = AmCharts.AmGraph();
 		amGraph2.setFillAlphas(0.2);
@@ -101,11 +110,15 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 		amGraph2.setLineAlpha(0);
 		amGraph2.setShowBalloon(false);
 		amGraph2.setValueField("toValue");
+		amGraph2.setLegendValueText("[[value]]");
+		amGraph2.setTitle("ToValue");
 		amSerialChart.addGraph(amGraph2);
 		AmGraph amGraph3 = AmCharts.AmGraph();
 		amGraph3.setValueField("value");
+		amGraph3.setLegendValueText("[[value]]");
 		amGraph3.setFillAlphas(0);
 		amGraph3.setBulletField("bullet");
+		amGraph3.setTitle("Value");
 		amSerialChart.addGraph(amGraph3);
 
 		ChartCursor chartCursor = AmCharts.ChartCursor();
@@ -200,7 +213,6 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 					String titleText = title.getText();
 					chartDataIndex.setPrev(titleText);
 					chartDataIndexes.push(chartDataIndex);
-					amChart.getValueAxesOne().setTitle("Oh My God");
 					amChart.setDataProvider(subSet);
 					anchorAmChartMenuGoBack.setText(titleText);
 					title.setText(subSetTitle);

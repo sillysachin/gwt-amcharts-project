@@ -54,7 +54,7 @@ public class GWTAMChart implements EntryPoint
 		{
 			public void onReady()
 			{
-				chartWrapper.setSize( "620px", "350px" );
+				chartWrapper.setSize( "750px", "400px" );
 				Widget widget = chartWrapper.getChartWidget();
 				RootLayoutPanel.get().add( widget );
 			}
