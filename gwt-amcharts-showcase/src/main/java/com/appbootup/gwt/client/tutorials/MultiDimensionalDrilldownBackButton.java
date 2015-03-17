@@ -71,6 +71,9 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 
 		final AmSerialChart amSerialChart = AmCharts.AmSerialChart();
 		amSerialChart.setTheme("none");
+		amSerialChart.setAddClassNames(true);
+		amSerialChart.setDefs();
+
 		GWT.log(AmCharts.JS_AMCHARTS_IMAGES);
 		amSerialChart.setPathToImages(AmCharts.JS_AMCHARTS_IMAGES);
 
@@ -105,6 +108,7 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 		amGraph1.setTitle("FromValue");
 		amSerialChart.addGraph(amGraph1);
 		AmGraph amGraph2 = AmCharts.AmGraph();
+		amGraph2.setId("toGraph");
 		amGraph2.setFillAlphas(0.2);
 		amGraph2.setFillToGraph("fromGraph");
 		amGraph2.setLineAlpha(0);
@@ -114,6 +118,7 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 		amGraph2.setTitle("ToValue");
 		amSerialChart.addGraph(amGraph2);
 		AmGraph amGraph3 = AmCharts.AmGraph();
+		amGraph3.setId("valueGraph");
 		amGraph3.setValueField("value");
 		amGraph3.setLegendValueText("[[value]]");
 		amGraph3.setFillAlphas(0);
@@ -257,6 +262,7 @@ public class MultiDimensionalDrilldownBackButton extends AbstractChartWrapper {
 		}
 		amSerialChart.setDataProvider(previousData);
 		amSerialChart.validateData();
+		LogUtils.log(amSerialChart);
 	}
 
 	private native JsArray<JavaScriptObject> getSubSet(JavaScriptObject data)

@@ -6,15 +6,39 @@
 }
 
 #chartdiv1 {
-    width : 49%;
-    height : 300px;
-    font-size : 11px;
-    float: left;
+	width: 49%;
+	height: 300px;
+	font-size: 11px;
+	float: left;
 }
 
 #chartdiv2 {
-    width : 50%;
-    height : 300px;
-    font-size : 11px;
-    float: left;
+	width: 50%;
+	height: 300px;
+	font-size: 11px;
+	float: left;
+}
+
+/* 
+.amcharts-graph-valueGraph {
+	filter: url(#blur);
+} 
+*/
+
+.amcharts-graph-valueGraph .amcharts-graph-line {
+	-webkit-animation: am-pulsate-line 1s linear infinite;
+	animation: am-pulsate-line 1s linear infinite;
+}
+
+.responsive-container {
+	position: relative;
+	padding-bottom: 60%; /* the higher the bigger the ratio */
+}
+
+.responsive-container>div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
