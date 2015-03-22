@@ -48,4 +48,8 @@ public class AbstractChartWrapper implements IsChartWrapper
 	public void setSize( String width, String height )
 	{
 	}
+	
+	public void init()
+	{
+	}
 }

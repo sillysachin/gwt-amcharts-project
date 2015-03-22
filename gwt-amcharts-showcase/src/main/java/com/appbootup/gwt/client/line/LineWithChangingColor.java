@@ -25,7 +25,8 @@ public class LineWithChangingColor extends AbstractChartWrapper
 {
 	public LineWithChangingColor()
 	{
-		ChartServiceAsync.Util.getInstance()
+		ChartServiceAsync.Util
+				.getInstance()
 				.getData( "/data/lineWithChangingColor.json", new AsyncCallback<String>()
 				{
 					@Override

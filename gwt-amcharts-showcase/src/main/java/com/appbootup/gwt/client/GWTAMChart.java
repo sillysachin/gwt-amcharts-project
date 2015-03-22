@@ -1,7 +1,7 @@
 package com.appbootup.gwt.client;
 
 import com.amcharts.impl.wrapper.IsReadyCallback;
-import com.appbootup.gwt.client.tutorials.MultiDimensionalDrilldownBackButton;
+import com.appbootup.gwt.client.line.LineChartWithScrollAndZoom;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -47,17 +47,19 @@ public class GWTAMChart implements EntryPoint
 		// final StackedArea chartWrapper = new StackedArea();
 		// final DurationOnValueAxis chartWrapper = new DurationOnValueAxis();
 		// final UpdatingBalloonTooltip chartWrapper = new UpdatingBalloonTooltip();
-		final MultiDimensionalDrilldownBackButton chartWrapper = new MultiDimensionalDrilldownBackButton();
+		// final MultiDimensionalDrilldownBackButton chartWrapper = new MultiDimensionalDrilldownBackButton();
 		// final LinkingPieChartColumnChartDrillDataDisplay chartWrapper = new LinkingPieChartColumnChartDrillDataDisplay();
-
+		final LineChartWithScrollAndZoom chartWrapper = new LineChartWithScrollAndZoom();
 		chartWrapper.setReadyCallback( new IsReadyCallback()
 		{
 			public void onReady()
 			{
 				chartWrapper.setSize( "750px", "400px" );
 				Widget widget = chartWrapper.getChartWidget();
+				widget.setSize( "750px", "400px" );
 				RootLayoutPanel.get().add( widget );
 			}
 		} );
+		chartWrapper.init();
 	}
 }
